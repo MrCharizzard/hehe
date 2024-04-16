@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You Gay?</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            background-image: url(''); /* You can add an image URL here if you want */
+           
+    /* Other styles... */
+    background-image: url('https://parade.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTgxMTkzOTc5NDcxNzQw/pride-flag-color-meaning-jpg.jpg');
+    background-size: cover; /* Adjust the background size as needed */
+    background-position: center; /* Adjust the background position as needed */
+
+
+			background-size: cover;
+            background-position: center;
+            color: #ffffff; /* Set text color to white */
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px; /* Increase font size */
+            margin-bottom: 20px;
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio">
+        <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1>Are You Gay?</h1>
+        <p>Let's find out! Click the button to answer.</p>
+        <div class="button-container">
+            <button onclick="checkGay()">Yes</button>
+            <button onclick="answerNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        var isGay = false;
+        var noCount = 0; // Counter for number of times 'no' is answered
+        var audio = document.getElementById("audio");
+
+        function checkGay() {
+            if (isGay) {
+                alert("Lol, I knew it! xD");
+            } else {
+                alert("You are!");
+                isGay = true;
+            }
+        }
+
+        function answerNo() {
+            noCount++;
+            if (noCount >= 3) { // If 'no' is answered 3 or more times, play troll sound
+                audio.play();
+                noCount = 0; // Reset the counter
+            } else {
+                alert("You are!");
+                do {
+                    var response = prompt("Are you gay? (yes/no)");
+                    if (response !== null && response.toLowerCase() === 'yes') {
+                        alert("Lol, I knew it! xD");
+                        break;
+                    }
+                } while (response === null || response.toLowerCase() !== 'yes');
+            }
+        }
+    </script>
+</body>
+</html>
